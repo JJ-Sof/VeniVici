@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; // Make sure this is correct based on where your CSS is
+import './App.css'; 
 import { fetchBreeds } from './api';
-import caucasianShepherdDogImage from './images/caucasian-shepherd-dog.jpg'; // Import the specific image for Caucasian Shepherd Dog
+import caucasianShepherdDogImage from './images/caucasian-shepherd-dog.jpg'; 
 import barbetImage from './images/barbet.jpg';
 import belgianLaekenoisImage from './images/belgian-laekenois.jpg';
 import belgianMalinoisImage from './images/belgian-malinois.jpg';
@@ -48,7 +48,6 @@ function App() {
     try {
       const data = await fetchBreeds();
       let randomBreed = data.data[Math.floor(Math.random() * data.data.length)];
-      // Check if the random breed has any attributes from the ban list
       while (randomBreed && Object.entries(randomBreed.attributes).some(([name, value]) => banList.includes(`${name}: ${value}`))) {
         randomBreed = data.data[Math.floor(Math.random() * data.data.length)];
       }
@@ -66,9 +65,7 @@ function App() {
   }, []);
 
   const handleAttributeClick = (attribute) => {
-    // Add the attribute to the ban list
     setBanList([...banList, attribute]);
-    // Fetch a new breed without attributes from the ban list
     handleFetchBreeds();
   };
 
@@ -77,7 +74,6 @@ function App() {
       {breed && (
         <div className="card">
           <h2>{breed.attributes.name}</h2>
-          {/* Conditionally render the specific image if available */}
           {breed.attributes.name in breedImages && (
             <img src={breedImages[breed.attributes.name]} alt={breed.attributes.name} />
           )}
