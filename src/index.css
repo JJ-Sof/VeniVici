@@ -65,4 +65,26 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #16099e;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 18px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
 }
